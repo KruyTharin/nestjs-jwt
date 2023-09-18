@@ -9,9 +9,9 @@ services:
       - 5432:5432
 
     environment:
-      - POSTGRES_DB=testDB
+      - POSTGRES_DB=schoolDB
       - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_PASSWORD=Testing@123
 
   adminer:
     image: adminer
