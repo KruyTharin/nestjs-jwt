@@ -12,6 +12,7 @@ const config: PostgresConnectionOptions = {
   password: 'Testing@123',
   entities: [User, Topic, Comment],
   synchronize: true,
+  logging: true,
 };
 
 export default config;
