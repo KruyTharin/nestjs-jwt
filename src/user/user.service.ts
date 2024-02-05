@@ -14,6 +14,14 @@ export class UserService {
     return await this.userRepo.findOne({ where: { id: id } });
   }
 
+  async findAll() {
+    return await this.userRepo.find();
+  }
+  async delete(id: number) {
+    const { affected } = await this.userRepo.delete(id);
+    return Boolean(affected);
+  }
+
   async findOneWithUserName(username: string) {
     return await this.userRepo.findOne({ where: { email: username } });
   }

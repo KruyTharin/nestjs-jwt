@@ -12,9 +12,3 @@ services:
       - POSTGRES_DB=schoolDB
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=Testing@123
-
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - 8080:8080

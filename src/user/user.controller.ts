@@ -20,14 +20,22 @@ export class UserController {
     private readonly commentService: CommentService,
   ) {}
 
+  @UseGuards(JwtGuard)
   @Get('all')
   findAll() {
-    return `find all user`;
+    return this.userService.findAll();
   }
 
+  @UseGuards(JwtGuard)
   @Get(':id')
   findOne(@Param('id') id: number) {
     return this.userService.findOne(id);
+  }
+
+  @UseGuards(JwtGuard)
+  @Delete(':id')
+  delete(@Param('id') id: number) {
+    return this.userService.delete(id);
   }
 
   @Post()
@@ -35,6 +43,7 @@ export class UserController {
     return this.userService.createUser(createUserDto);
   }
 
+  @UseGuards(JwtGuard)
   @Patch(':id')
   updateUser(@Param('id') id: number, @Body() updateUserDto: UpdateUserDto) {
     return this.userService.updateUser(id, updateUserDto);
